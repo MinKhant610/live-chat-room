@@ -1,7 +1,7 @@
 <template>
     <nav v-if="user">
         <div>
-            <p>{{ user.displayName }}</p>
+            <p>Hello {{ user.displayName }}</p>
             <p class="email">Logged in as {{ user.email }}</p>
         </div>
         <button @click="logout">Logout</button>
