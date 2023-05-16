@@ -15,7 +15,7 @@ import { auth } from '@/firebase/config';
 import useSignup from '@/composable/useSignup'
 
     export default {
-        setup(){
+        setup(props, context){
             let name = ref("");
             let email = ref("");
             let password = ref("");
@@ -25,7 +25,7 @@ import useSignup from '@/composable/useSignup'
             let signUp = async()=>{
                 let response = await createAccount(email.value, password.value, name.value);
                 if (response){
-                    console.log("Account created success");
+                    context.emit("enterChatroom");
                 }
             }
 

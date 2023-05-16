@@ -16,7 +16,7 @@ import { auth } from '@/firebase/config';
 import useLogin from '@/composable/useLogin'
 
     export default {
-        setup(){
+        setup(props, context){
             let email = ref("");
             let password = ref("");
 
@@ -25,7 +25,8 @@ import useLogin from '@/composable/useLogin'
             let login = async()=>{
                 let response = await signIn(email.value, password.value);
                 if (response){
-                    console.log("success")
+                    //this.$emit is not work so use context
+                    context.emit("enterChatroom");
                 }
             }
 
